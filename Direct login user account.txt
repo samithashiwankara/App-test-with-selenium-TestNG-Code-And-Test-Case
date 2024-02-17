@@ -1,0 +1,135 @@
+package AutomateTesting;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+  
+
+
+
+
+                 // Enter Direct Login Page
+
+public class LOGINONE {
+	
+	//Global declarations
+	public String baseUrl="https://phptravels.org/cart.php?a=view";
+	String driverPath="E:\\JAVA\\SQAAssignment\\Library\\ChromeDriver\\chromedriverV91.exe";
+	public WebDriver ChromeDriver;
+	
+	
+@BeforeTest
+public void launchBrowser()
+{
+		
+	System.out.println("launching Chrome Browser");
+	System.setProperty("webdriver.chrome.driver", driverPath);
+    ChromeDriver=new ChromeDriver(); 
+    ChromeDriver.get(baseUrl);
+		
+	     //Browser window maximize
+		 ChromeDriver.manage().window().maximize();
+		
+ }
+	
+// First enter Login form
+
+@Test(priority=1)
+public void InsideRegistrationForm() throws InterruptedException 
+{
+	
+   ChromeDriver.findElement(By.linkText("Login")).click();
+   System.out.println(" Loging Hyperlink has been clicked");
+   Thread.sleep(3000);
+			
+}
+
+
+//Enter email address
+
+@Test(priority=2)
+public void EnterEmailAdress() throws InterruptedException 
+{
+	
+   WebElement Email=ChromeDriver.findElement(By.id("inputEmail"));
+   Email.sendKeys("samithashiwankara46@gmail.com"); 
+   System.out.println("email text has been added to the box");       
+   Thread.sleep(3000);
+				
+}
+
+
+
+//Enter Password
+
+@Test(priority=3)
+
+public void password() throws InterruptedException 
+{
+	            
+   WebElement password =ChromeDriver.findElement(By.id("inputPassword"));
+   password.sendKeys("Samitha.#.1258");      
+   System.out.println(" Password  has been Entered successfully");       
+   Thread.sleep(3000); 
+	  			
+}	 
+
+
+//Check box 
+
+@Test(priority=4)
+
+public void Checkbox() throws InterruptedException 
+ {
+	             
+   WebElement Checkbox=ChromeDriver.findElement(By.xpath("//*[@id=\"main-body\"]/div/div/div[1]/div/div[3]/div[1]/form/div[3]/label/input"));
+   Checkbox.click();
+   System.out.println(" Check box has been Clicked");
+   Thread.sleep(10000);  
+	  				
+  }
+
+
+//Click login button
+
+@Test(priority=5)
+
+public void loginbutton() throws InterruptedException 
+{
+	       
+  WebElement loginbutton =ChromeDriver.findElement(By.id("login"));	 
+  loginbutton.click(); 
+  System.out.println("Login button has been Clicked");   
+  Thread.sleep(3000); 
+	         
+	        	
+ }	 
+
+//Log out 
+
+@Test(priority=6)
+
+public void logout() throws InterruptedException 
+{
+	
+ChromeDriver.findElement(By.linkText("Logout")).click();
+Thread.sleep(3000); 
+System.out.println("Log out button has been Clicked");
+  
+}
+
+
+//Browser Quite 
+
+@AfterTest
+public void browserQuit()
+{
+	ChromeDriver.quit();
+	
+}
+
+}

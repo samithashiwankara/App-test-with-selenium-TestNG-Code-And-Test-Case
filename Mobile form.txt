@@ -1,0 +1,392 @@
+package AutomateTesting;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+
+public class Mobileform {
+
+
+		//Global declarations
+			public String baseUrl="https://phptravels.org/cart.php?a=view";
+			String driverPath="E:\\JAVA\\SQAAssignment\\Library\\ChromeDriver\\chromedriverV91.exe";
+			public WebDriver ChromeDriver;
+			
+		
+@BeforeTest
+public void launchBrowser()
+{
+    System.out.println("launching Chrome Browser");
+	System.setProperty("webdriver.chrome.driver", driverPath);
+	ChromeDriver=new ChromeDriver(); 
+	ChromeDriver.get(baseUrl);
+	
+	//Browser window maximize
+	ChromeDriver.manage().window().maximize();
+		
+}
+	                                    //Menu
+	//click store 
+	
+@Test(priority=1)
+	
+public void clickStore() throws InterruptedException 
+{
+		
+  WebElement clickStore =ChromeDriver.findElement(By.xpath("//*[@id=\"Primary_Navbar-Store\"]"));
+  clickStore.click();
+  System.out.println(" Store drop down has been clicked");
+			
+	    
+  Thread.sleep(3000);
+	     
+}
+	
+	//inside Browse all form
+	
+@Test(priority=2)
+
+ public void InsideBrowseForm() throws InterruptedException 
+ {
+   WebElement InsideBrowseForm =ChromeDriver.findElement(By.xpath("//*[@id=\"Primary_Navbar-Store-Browse_Products_Services\"]"));
+   InsideBrowseForm.click();
+   System.out.println(" Browse all Hyperlink has been clicked");
+   Thread.sleep(3000);
+				
+ }
+	
+	//inside Mobile form
+
+@Test(priority=3)
+
+ public void InsideMobileForm() throws InterruptedException 
+ {
+   WebElement InsideMobileForm =ChromeDriver.findElement(By.xpath("//*[@id=\"Secondary_Sidebar-Categories-Mobile\"]"));
+   InsideMobileForm.click();
+   System.out.println(" Mobile Hyperlink has been clicked");
+   Thread.sleep(3000);
+				
+ }
+	                   // Mobile form
+	
+	
+	//Select mobile application form
+	
+@Test(priority=4)
+
+public void selectMobileApplication() throws InterruptedException 
+ { 
+    WebElement selectMobileApplication =ChromeDriver.findElement(By.xpath("//*[@id=\"pid17\"]"));
+	selectMobileApplication.click();
+	System.out.println(" Mobile Applications radio button has been clicked");
+			 	
+		    
+    Thread.sleep(3000);
+		     
+	 			
+  }
+		//click Continue  button 
+@Test(priority=5)
+
+public void ClickContinuebutton() throws InterruptedException 
+ { 
+	 WebElement ClickContinuebutton =ChromeDriver.findElement(By.xpath("//*[@id=\"order-boxes\"]/div[3]/form/div[2]/button"));
+	 ClickContinuebutton.click();
+     System.out.println("Continue button has been clicked");
+			 	
+		    
+	 Thread.sleep(3000);
+		  	
+		  }	
+		         
+		
+		           //Configure form
+		
+		
+		//click Add to cart
+@Test(priority=6)
+public void ClickAddtocart() throws InterruptedException 
+  { 
+	 WebElement ClickAddtocart =ChromeDriver.findElement(By.xpath("//*[@id=\"frmConfigureProduct\"]/div/div[1]/div[4]/div/div/div[1]/label/div"));
+	 ClickAddtocart.click();
+	 System.out.println("Add to card button has been clicked");
+		// Alert a =ChromeDriver.switchTo().alert();
+		// String s =ChromeDriver.switchTo().alert().getText();
+		// System.out.println("Message :"+s);
+		// a.accept();
+		    
+			 	
+		    
+     Thread.sleep(3000);
+		     
+	 			
+		  }	
+		
+//click continue button
+		
+@Test(priority=7)
+
+ public void ClickContinuebuttonTwo() throws InterruptedException 
+ { 
+	 WebElement ClickContinuebuttonTwo =ChromeDriver.findElement(By.xpath("//*[@id=\"btnCompleteProductConfig\"]"));
+	 ClickContinuebuttonTwo.click();
+			
+	 System.out.println("Continue button has been clicked");
+			 	
+		    
+     Thread.sleep(3000);
+		     
+	 			
+ }	
+		
+		              //Review & Checkout form
+		
+		//click Remove button
+@Test(priority=8)
+
+public void ClickRemovebutton() throws InterruptedException 
+{ 
+	 WebElement ClickRemovebutton =ChromeDriver.findElement(By.xpath("//*[@id=\"order-standard_cart\"]/div/div[2]/div[3]/div[1]/form/div[2]/div[1]/div/div[3]/button"));
+	 ClickRemovebutton.click();
+     System.out.println("Remove button has been clicked");
+	 Thread.sleep(3000);
+				     
+			 			
+ }	
+				
+				
+				//click No button
+				
+@Test(priority=9)
+
+public void ClickNobutton() throws InterruptedException 
+ {
+	WebElement ClickNobutton =ChromeDriver.findElement(By.xpath("//*[@id=\"modalRemoveItem\"]/div/div/div[2]/button[1]"));
+	ClickNobutton.click();
+    System.out.println("No button has been clicked"); 
+    Thread.sleep(3000);
+				     
+			 			
+ }	
+			//click edit Link
+				
+@Test(priority=10)
+
+public void ClickEditbutton() throws InterruptedException 
+ { 
+	ChromeDriver.findElement(By.linkText("Edit")).click();
+    System.out.println("Edit link has been clicked");
+    Thread.sleep(3000);
+				     
+			 			
+ }	   
+				
+				
+				                     //Configure form
+				
+				//click Uploading Apps to Stores
+				
+@Test(priority=11)
+
+ public void ClickCheckBox() throws InterruptedException 
+{ 
+					
+	 WebElement ClickCheckBox =ChromeDriver.findElement(By.xpath("//*[@id=\"frmConfigureProduct\"]/div/div[1]/div[4]/div/div/div[1]/label/div/ins"));
+	 ClickCheckBox.click();
+     System.out.println("Check box has been clicked");
+	 Thread.sleep(3000);
+			 			
+ }	
+				
+				//again click continue button
+				
+@Test(priority=12)
+
+ public void ContinuebuttonTwo() throws InterruptedException 
+ { 
+	 WebElement ContinuebuttonTwo =ChromeDriver.findElement(By.xpath("//*[@id=\"btnCompleteProductConfig\"]"));
+	 ContinuebuttonTwo.click();			
+	 System.out.println("Continue button has been clicked");			
+	 Thread.sleep(3000);
+				     
+			 			
+ }	
+				
+			 	             
+				                      //Review & Checkout form
+				           
+				//click empty cart button
+				
+@Test(priority=13)
+ public void clickEmptyCart() throws InterruptedException 
+{ 
+	 WebElement EmptyCart =ChromeDriver.findElement(By.xpath("//*[@id=\"btnEmptyCart\"]"));
+	 EmptyCart.click();
+     System.out.println("Empty Card button has been clicked");
+     Thread.sleep(3000);
+				     
+			 			
+  }	
+				
+				//click No option
+				
+				
+@Test(priority=14)
+
+ public void ClickNOoption() throws InterruptedException 
+  { 
+	 WebElement NOoption =ChromeDriver.findElement(By.xpath("//*[@id=\"modalEmptyCart\"]/div/div/div[2]/button[1]"));
+	 NOoption.click();				
+     System.out.println("NO button has been clicked");			
+     Thread.sleep(3000);
+				     
+			 			
+ }	
+				
+				//Click Check out button
+				
+				
+@Test(priority=15)
+
+ public void ClickCheckOut() throws InterruptedException 
+ { 
+	ChromeDriver.findElement(By.linkText("Checkout")).click();
+	System.out.println("Check Out link has been clicked");			
+    Thread.sleep(3000);
+				     
+			 			
+ }	
+				
+				
+				                //Checkout form
+				
+				//click already button
+				
+@Test(priority=16)
+
+ public void ClickAlready() throws InterruptedException 
+{ 
+					
+   WebElement ClickAlready =ChromeDriver.findElement(By.xpath("//*[@id=\"btnAlreadyRegistered\"]"));
+   ClickAlready.click();				
+   System.out.println("Alreay button has been clicked");   
+   Thread.sleep(3000);
+					
+ }	
+				
+				
+				             //Existing Customer Login
+				
+				//Enter email address
+
+@Test(priority=17)
+				
+public void EnterEmailAdress() throws InterruptedException 
+{
+  WebElement Email=ChromeDriver.findElement(By.xpath("//*[@id=\"inputLoginEmail\"]"));
+  Email.sendKeys("samithashiwankara46@gmail.com");
+  System.out.println("email text has been added to the Textbox");	          
+  Thread.sleep(3000);
+								
+}
+				
+				//Enter Password
+
+@Test(priority=18)
+
+public void password() throws InterruptedException 
+ {	            
+	 WebElement password =ChromeDriver.findElement(By.xpath("//*[@id=\"inputLoginPassword\"]"));
+	 password.sendKeys("Samitha.#.1258");       
+     System.out.println(" Password  has been Entered successfully");
+	 Thread.sleep(3000); 
+					  			
+}	
+				
+				//Click login button
+
+@Test(priority=19)
+
+public void loginbutton() throws InterruptedException 
+{
+					       
+  WebElement loginbutton =ChromeDriver.findElement(By.xpath("//*[@id=\"btnExistingLogin\"]"));	 
+  loginbutton.click(); 
+  System.out.println("Login button has been Clicked");   
+  Thread.sleep(3000); 
+					        	
+ }	 
+				 
+				        //Additional Notes
+				
+				//Enter Additional notes
+
+@Test(priority=20)
+
+public void EnterAdditionalnotes() throws InterruptedException 
+{
+	 WebElement Additionalnotes=ChromeDriver.findElement(By.name("notes"));
+	 Additionalnotes.sendKeys("This is QA Assignment, All Have Done..!!!!");		     
+	 System.out.println("Text has been added to textarea ");
+     Thread.sleep(10000);
+							
+}
+				 // Click Complete Order
+				
+@Test(priority=21)
+
+public void  ClickCompleteOrder() throws InterruptedException 
+{	       
+   WebElement loginbutton =ChromeDriver.findElement(By.xpath("//*[@id=\"btnCompleteOrder\"]"));	 
+   loginbutton.click(); 
+   System.out.println("Login button has been Clicked");   
+   Thread.sleep(3000); 
+					         
+					        	
+}	 
+				      //Invoice
+				
+                 
+				//Click Back to client Area
+@Test(priority=22)
+
+public void  BacktoclientArea() throws InterruptedException 
+{
+	  ChromeDriver.findElement(By.linkText("« Back to Client Area")).click();
+	  System.out.println("Back to client Area link has been clicked");
+	  Thread.sleep(3000); 
+					         
+					        	
+}	 
+				            //My Invoice
+				
+				//Click Logout link
+@Test(priority=23)
+public void  Logoutlink() throws InterruptedException 
+{
+	  ChromeDriver.findElement(By.linkText("Logout")).click();
+      System.out.println("Logout link has been clicked");
+      Thread.sleep(3000); 
+					         
+ }	 
+				
+				
+				//Browser Quite 
+
+@AfterTest
+
+public void browserQuit()
+{
+	ChromeDriver.quit();
+					
+}
+	       
+
+}
